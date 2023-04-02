@@ -1,0 +1,3 @@
+.DS_Store
+bin/Brewfile.lock.json
+nvim/autoload/plug.vim
