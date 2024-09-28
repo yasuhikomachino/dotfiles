@@ -22,18 +22,30 @@ dotfiles=(
     "${DOTFILES_DIR}/Brewfile" "${HOME}/Brewfile"
 )
 
-install_brewfiles() {
-    echo "Starting package installation..."
+install_dependencies() {
+    echo "Starting installation of dependencies..."
 
     if (( ! $+commands[brew] )); then
         echo "Homebrew is not installed. Please install it."
-        echo "Installation guide: https://brew.sh/"
+        echo "Installation instructions: https://brew.sh/"
         return 1
     fi
 
+    # Install dependencies using Brewfile
     brew bundle --file=${HOME}/Brewfile
 
-    echo "Package installation completed."
+    # Install Node.js using asdf
+    if (( $+commands[asdf] )); then
+        echo "Installing Node.js..."
+        asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+        asdf install nodejs latest
+        asdf global nodejs latest
+        echo "Node.js installation completed."
+    else
+        echo "asdf is not installed. Skipping Node.js installation."
+    fi
+
+    echo "Dependency installation completed."
 }
 
 create_gitconfig_local() {
@@ -98,7 +110,7 @@ setup() {
     done
 
     create_gitconfig_local
-    install_brewfiles
+    install_dependencies
 
     echo "Setup completed. Start a new shell or run 'source ~/.zshrc' to apply changes."
 }
