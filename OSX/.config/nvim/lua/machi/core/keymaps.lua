@@ -35,3 +35,11 @@ keymap.set("n", "<Tab>", ">>", { noremap = true, silent = true })
 keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
 keymap.set("n", "<S-Tab>", "<<", { noremap = true, silent = true })
 keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
+
+-- Move the current line up or down
+keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
+keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
+
+-- Move selected lines up or down in visual mode
+keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
