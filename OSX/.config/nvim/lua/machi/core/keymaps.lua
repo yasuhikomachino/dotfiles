@@ -29,3 +29,9 @@ keymap.set("v", "<Leader>p", '"+p', { noremap = true, silent = true, desc = "Pas
 keymap.set("v", "<Leader>P", '"+P', { noremap = true, silent = true, desc = "Paste from system clipboard (before cursor)" })
 keymap.set("n", "<Leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard (after cursor)" })
 keymap.set("n", "<Leader>P", '"+P', { noremap = true, silent = true, desc = "Paste from system clipboard (before cursor)" })
+
+-- Indent
+keymap.set("n", "<Tab>", ">>", { noremap = true, silent = true })
+keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
+keymap.set("n", "<S-Tab>", "<<", { noremap = true, silent = true })
+keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
