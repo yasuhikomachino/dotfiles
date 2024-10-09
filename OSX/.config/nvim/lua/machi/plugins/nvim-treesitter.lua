@@ -6,7 +6,6 @@ return {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-    -- import nvim-treesitter plugin
     local treesitter = require("nvim-treesitter.configs")
 
     -- configure treesitter
@@ -39,6 +38,7 @@ return {
         "vimdoc",
         "c",
         "php",
+        "php_only",
         "go",
         "http",
         "typespec",
@@ -51,6 +51,27 @@ return {
           scope_incremental = false,
           node_decremental = "<bs>",
         },
+      },
+    })
+
+    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+    parser_config.blade = {
+      install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = { "src/parser.c" },
+        branch = "main",
+      },
+      filetype = "blade",
+    }
+
+    vim.filetype.add({
+      pattern = {
+        [".*%.blade%.php"] = "blade",
+        [".*%.html"] = "htmldjango",
+        [".*%.html%.jinja"] = "htmldjango",
+        [".*%.html%.jinja2"] = "htmldjango",
+        [".*%.html%.j2"] = "htmldjango",
       },
     })
   end,
