@@ -7,6 +7,7 @@ GIT_CONFIG_LOCAL="${HOME}/.gitconfig.local"
 # Define file paths and symbolic link mappings
 typeset -A dotfiles
 dotfiles=(
+    "${DOTFILES_DIR}/changelog.config.js" "${HOME}/changelog.config.js"
     "${DOTFILES_DIR}/.gitconfig" "${HOME}/.gitconfig"
     "${DOTFILES_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
     "${DOTFILES_DIR}/.zshrc" "${HOME}/.zshrc"
