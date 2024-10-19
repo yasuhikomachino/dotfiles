@@ -2,7 +2,6 @@
 
 ## Requirements
 
-- Homebrew
 - Zsh
 - Git
 
