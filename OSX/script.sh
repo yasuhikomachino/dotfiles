@@ -2,13 +2,12 @@
 
 DOTFILES_DIR="${HOME}/dotfiles/osx"
 BACKUP_DIR="${HOME}/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
-GIT_CONFIG_LOCAL="${HOME}/.gitconfig.local"
 
 # Define file paths and symbolic link mappings
 typeset -A dotfiles
 dotfiles=(
     "${DOTFILES_DIR}/changelog.config.js" "${HOME}/changelog.config.js"
-    "${DOTFILES_DIR}/.gitconfig" "${HOME}/.gitconfig"
+    "${DOTFILES_DIR}/git/.gitconfig" "${HOME}/.gitconfig"
     "${DOTFILES_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
     "${DOTFILES_DIR}/.zshrc" "${HOME}/.zshrc"
     "${DOTFILES_DIR}/.zsh/aliases.zsh" "${HOME}/.zsh/aliases.zsh"
@@ -22,23 +21,6 @@ dotfiles=(
     "${DOTFILES_DIR}/.config/starship.toml" "${HOME}/.config/starship.toml"
     "${DOTFILES_DIR}/homebrew/.Brewfile" "${HOME}/.Brewfile"
 )
-
-create_gitconfig_local() {
-    if [[ ! -e ${GIT_CONFIG_LOCAL} ]]; then
-        echo -n "git config user.email?> "
-        read GIT_AUTHOR_EMAIL
-
-        echo -n "git config user.name?> "
-        read GIT_AUTHOR_NAME
-
-        cat << EOF > ${GIT_CONFIG_LOCAL}
-[user]
-  name = ${GIT_AUTHOR_NAME}
-  email = ${GIT_AUTHOR_EMAIL}
-EOF
-        echo "Created ${GIT_CONFIG_LOCAL}"
-    fi
-}
 
 create_symlink() {
     local source=$1
@@ -84,7 +66,8 @@ setup() {
         create_symlink ${source} ${target}
     done
 
-    create_gitconfig_local
+    # Install .gitconfig
+    sh ./git/install.sh
 
     # Install homebrew pacages
     sh ./homebrew/install.sh
