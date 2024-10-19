@@ -66,9 +66,9 @@ setup() {
         create_symlink ${source} ${target}
     done
 
-    sh ./git/install.sh
-    sh ./homebrew/install.sh
-    sh ./asdf/install.sh
+    sh ${DOTFILES_DIR}/scripts/git/install.sh
+    sh ${DOTFILES_DIR}/scripts/homebrew/install.sh
+    sh ${DOTFILES_DIR}/scripts/asdf/install.sh
 
     echo "Setup completed. Start a new shell or run 'source ~/.zshrc' to apply changes."
 }
