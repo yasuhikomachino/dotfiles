@@ -23,23 +23,6 @@ dotfiles=(
     "${DOTFILES_DIR}/homebrew/.Brewfile" "${HOME}/.Brewfile"
 )
 
-install_dependencies() {
-    echo "Starting installation of dependencies..."
-
-    # Install Node.js using asdf
-    if (( $+commands[asdf] )); then
-        echo "Installing Node.js..."
-        asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-        asdf install nodejs latest
-        asdf global nodejs latest
-        echo "Node.js installation completed."
-    else
-        echo "asdf is not installed. Skipping Node.js installation."
-    fi
-
-    echo "Dependency installation completed."
-}
-
 create_gitconfig_local() {
     if [[ ! -e ${GIT_CONFIG_LOCAL} ]]; then
         echo -n "git config user.email?> "
@@ -106,7 +89,8 @@ setup() {
     # Install homebrew pacages
     sh ./homebrew/install.sh
 
-    install_dependencies
+    # Install other packages
+    sh ./asdf/install.sh
 
     echo "Setup completed. Start a new shell or run 'source ~/.zshrc' to apply changes."
 }
