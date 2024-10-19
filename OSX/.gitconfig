@@ -12,6 +12,6 @@
   sp = stash pop
   ss = stash -u -m "wip"
 [rebase]
- autostash = true
+  autostash = true
 [include]
   path = ~/.gitconfig.local

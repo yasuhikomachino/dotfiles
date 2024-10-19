@@ -7,7 +7,7 @@ BACKUP_DIR="${HOME}/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
 typeset -A dotfiles
 dotfiles=(
     "${DOTFILES_DIR}/changelog.config.js" "${HOME}/changelog.config.js"
-    "${DOTFILES_DIR}/git/.gitconfig" "${HOME}/.gitconfig"
+    "${DOTFILES_DIR}/.gitconfig" "${HOME}/.gitconfig"
     "${DOTFILES_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
     "${DOTFILES_DIR}/.zshrc" "${HOME}/.zshrc"
     "${DOTFILES_DIR}/.zsh/aliases.zsh" "${HOME}/.zsh/aliases.zsh"
@@ -19,7 +19,7 @@ dotfiles=(
     "${DOTFILES_DIR}/.zsh/starship.zsh" "${HOME}/.zsh/starship.zsh"
     "${DOTFILES_DIR}/.config/nvim" "${HOME}/.config/nvim"
     "${DOTFILES_DIR}/.config/starship.toml" "${HOME}/.config/starship.toml"
-    "${DOTFILES_DIR}/homebrew/.Brewfile" "${HOME}/.Brewfile"
+    "${DOTFILES_DIR}/.Brewfile" "${HOME}/.Brewfile"
 )
 
 create_symlink() {
@@ -61,18 +61,13 @@ remove_symlink() {
 }
 
 setup() {
-    echo "Starting dotfiles setup..."
+    echo "Starting setup..."
     for source target in ${(kv)dotfiles}; do
         create_symlink ${source} ${target}
     done
 
-    # Install .gitconfig
     sh ./git/install.sh
-
-    # Install homebrew pacages
     sh ./homebrew/install.sh
-
-    # Install other packages
     sh ./asdf/install.sh
 
     echo "Setup completed. Start a new shell or run 'source ~/.zshrc' to apply changes."
