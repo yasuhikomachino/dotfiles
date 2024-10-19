@@ -1,6 +1,6 @@
 # dotfiles
 
-## Requirement
+## Requirements
 
 - Homebrew
 - Zsh
@@ -10,7 +10,7 @@
 
 ```
 git clone https://github.com/yasuhikomachino/dotfiles.git ~/dotfiles
-cd ~/dotfiles/OSX
+cd ~/dotfiles/osx
 chmod +x script.sh
 ```
 

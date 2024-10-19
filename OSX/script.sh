@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-DOTFILES_DIR="${HOME}/dotfiles/OSX"
+DOTFILES_DIR="${HOME}/dotfiles/osx"
 BACKUP_DIR="${HOME}/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
 GIT_CONFIG_LOCAL="${HOME}/.gitconfig.local"
 
