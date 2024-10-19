@@ -65,7 +65,7 @@ module.exports = {
       value: "test",
     },
     chore: {
-      description: "Maintain codebas",
+      description: "Maintain codebase",
       value: "chore",
     },
     messages: {
