@@ -20,20 +20,11 @@ dotfiles=(
     "${DOTFILES_DIR}/.zsh/starship.zsh" "${HOME}/.zsh/starship.zsh"
     "${DOTFILES_DIR}/.config/nvim" "${HOME}/.config/nvim"
     "${DOTFILES_DIR}/.config/starship.toml" "${HOME}/.config/starship.toml"
-    "${DOTFILES_DIR}/Brewfile" "${HOME}/Brewfile"
+    "${DOTFILES_DIR}/homebrew/.Brewfile" "${HOME}/.Brewfile"
 )
 
 install_dependencies() {
     echo "Starting installation of dependencies..."
-
-    if (( ! $+commands[brew] )); then
-        echo "Homebrew is not installed. Please install it."
-        echo "Installation instructions: https://brew.sh/"
-        return 1
-    fi
-
-    # Install dependencies using Brewfile
-    brew bundle --file=${HOME}/Brewfile
 
     # Install Node.js using asdf
     if (( $+commands[asdf] )); then
@@ -111,6 +102,10 @@ setup() {
     done
 
     create_gitconfig_local
+
+    # Install homebrew pacages
+    sh ./homebrew/install.sh
+
     install_dependencies
 
     echo "Setup completed. Start a new shell or run 'source ~/.zshrc' to apply changes."
