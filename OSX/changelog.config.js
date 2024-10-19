@@ -6,13 +6,10 @@ module.exports = {
     "add",
     "update",
     "change",
-    "rename",
     "revert",
     "docs",
     "fix",
     "refactor",
-    "style",
-    "test",
     "chore",
   ],
   maxMessageLength: 128,
@@ -36,10 +33,6 @@ module.exports = {
       description: "Change due to spec updates",
       value: "change",
     },
-    rename: {
-      description: "Rename",
-      value: "rename",
-    },
     revert: {
       description: "Revert changes",
       value: "revert",
@@ -55,14 +48,6 @@ module.exports = {
     refactor: {
       description: "A code change that neither fixes a bug or adds a feature",
       value: "refactor",
-    },
-    style: {
-      description: "Markup, white-space, formatting, missing semi-colons...",
-      value: "style",
-    },
-    test: {
-      description: "Adding missing tests",
-      value: "test",
     },
     chore: {
       description: "Maintain codebase",
