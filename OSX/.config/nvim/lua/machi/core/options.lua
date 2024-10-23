@@ -28,3 +28,6 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, ent of line or 
 -- clipboard
 opt.splitright = true
 opt.splitbelow = true
+
+-- Ignore automatic formatting and save
+vim.api.nvim_create_user_command("W", "noautocmd w", {})
