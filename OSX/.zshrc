@@ -17,6 +17,3 @@ if [ -f "$HOME/.zshrc_local" ]; then
 fi
 for config_file (~/.zsh/*.zsh) source $config_file
 
-# Initialize Starship
-eval "$(starship init zsh)"
-
