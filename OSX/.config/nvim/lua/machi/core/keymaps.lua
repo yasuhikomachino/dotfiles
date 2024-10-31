@@ -7,7 +7,7 @@ keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "q", "b", { noremap = true, silent = true, desc = "Move to the beginning of the previous word" })
 
--- increment/decrement numbers
+-- Increment/Decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 
@@ -45,3 +45,9 @@ keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
 -- Move selected lines up or down in visual mode
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+
+-- Baffer
+keymap.set("n", "ls", ":<C-u>ls<CR>:buffer<Space>", { noremap = true, silent = true })
+keymap.set("n", "bp", ":bprevious<CR>", { noremap = true, silent = true })
+keymap.set("n", "bn", ":bnext<CR>", { noremap = true, silent = true })
+keymap.set("n", "bb", ":b#<CR>", { noremap = true, silent = true })
