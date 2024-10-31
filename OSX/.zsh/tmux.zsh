@@ -1,3 +1,5 @@
+export TMUX_TMPDIR=/tmp
+
 function tm() { 
   if [ -n "${1}" ]; then
     tmux attach-session -t ${1} || \
