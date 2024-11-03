@@ -19,6 +19,8 @@ dotfiles=(
     "${DOTFILES_DIR}/.zsh/starship.zsh" "${HOME}/.zsh/starship.zsh"
     "${DOTFILES_DIR}/.config/nvim" "${HOME}/.config/nvim"
     "${DOTFILES_DIR}/.config/starship.toml" "${HOME}/.config/starship.toml"
+    "${DOTFILES_DIR}/.config/yabai/yabairc" "${HOME}/.config/yabai/yabairc"
+    "${DOTFILES_DIR}/.config/skhd/skhdrc" "${HOME}/.config/skhd/skhdrc"
     "${DOTFILES_DIR}/.Brewfile" "${HOME}/.Brewfile"
 )
 
