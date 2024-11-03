@@ -22,6 +22,7 @@ dotfiles=(
     "${DOTFILES_DIR}/yabai/yabairc" "${HOME}/.config/yabai/yabairc"
     "${DOTFILES_DIR}/skhd/skhdrc" "${HOME}/.config/skhd/skhdrc"
     "${DOTFILES_DIR}/homebrew/.Brewfile" "${HOME}/.Brewfile"
+    "${DOTFILES_DIR}/wezterm/wezterm.lua" "${HOME}/.config/wezterm/wezterm.lua"
 )
 
 create_symlink() {
