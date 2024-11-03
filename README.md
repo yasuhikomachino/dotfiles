@@ -9,7 +9,7 @@
 
 ```
 git clone https://github.com/yasuhikomachino/dotfiles.git ~/dotfiles
-cd ~/dotfiles/osx/scripts/
+cd ~/dotfiles/osx
 chmod +x script.sh
 ```
 
