@@ -6,9 +6,10 @@ BACKUP_DIR="${HOME}/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
 # Define file paths and symbolic link mappings
 typeset -A dotfiles
 dotfiles=(
+    "${DOTFILES_DIR}/aerospace/aerospace.toml" "${HOME}/.config/aerospace/aerospace.toml"
     "${DOTFILES_DIR}/git-cz/changelog.config.js" "${HOME}/changelog.config.js"
     "${DOTFILES_DIR}/git/.gitconfig" "${HOME}/.gitconfig"
-    "${DOTFILES_DIR}/tmux/.tmux.conf" "${HOME}/.tmux.conf"
+    # "${DOTFILES_DIR}/tmux/.tmux.conf" "${HOME}/.tmux.conf"
     "${DOTFILES_DIR}/zsh/.zshrc" "${HOME}/.zshrc"
     "${DOTFILES_DIR}/zsh/.zsh/aliases.zsh" "${HOME}/.zsh/aliases.zsh"
     "${DOTFILES_DIR}/zsh/.zsh/asdf.zsh" "${HOME}/.zsh/asdf.zsh"
@@ -19,8 +20,8 @@ dotfiles=(
     "${DOTFILES_DIR}/zsh/.zsh/starship.zsh" "${HOME}/.zsh/starship.zsh"
     "${DOTFILES_DIR}/nvim" "${HOME}/.config/nvim"
     "${DOTFILES_DIR}/starship/starship.toml" "${HOME}/.config/starship.toml"
-    "${DOTFILES_DIR}/yabai/yabairc" "${HOME}/.config/yabai/yabairc"
-    "${DOTFILES_DIR}/skhd/skhdrc" "${HOME}/.config/skhd/skhdrc"
+    # "${DOTFILES_DIR}/yabai/yabairc" "${HOME}/.config/yabai/yabairc"
+    # "${DOTFILES_DIR}/skhd/skhdrc" "${HOME}/.config/skhd/skhdrc"
     "${DOTFILES_DIR}/homebrew/.Brewfile" "${HOME}/.Brewfile"
     "${DOTFILES_DIR}/wezterm/wezterm.lua" "${HOME}/.config/wezterm/wezterm.lua"
 )
