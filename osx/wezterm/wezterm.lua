@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
-	automatically_reload_config = false,
+	automatically_reload_config = true,
 	colors = {
 		background = "#011423",
 		selection_bg = "#033259",
@@ -16,8 +16,11 @@ return {
 		top = 5,
 		bottom = 5,
 	},
-	font = wezterm.font("Hack Nerd Font Mono"),
-	font_size = 16,
+	font = wezterm.font_with_fallback({
+		{ family = "Hack Nerd Font Mono", weight = "Regular" },
+		{ family = "HiraginoSans-W1", weight = "Regular" },
+	}),
+	font_size = 15,
 	keys = {
 		{
 			key = "Enter",
