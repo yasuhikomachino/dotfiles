@@ -39,6 +39,7 @@ return {
         "prismals",
         "pyright",
         "intelephense",
+        "rust_analyzer",
       },
     })
 
