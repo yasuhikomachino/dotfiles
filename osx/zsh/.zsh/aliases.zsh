@@ -1,5 +1,7 @@
+# Neovim
 alias vim='nvim'
 
+# eza
 alias ei="eza --icons --git"
 alias ea="eza -a --icons --git"
 alias ee="eza -aahl --icons --git"
@@ -11,4 +13,7 @@ alias ll=ee
 alias lt=et
 alias lta=eta
 alias l="clear && ls"
+
+# WezTerm
+alias st='(){wezterm cli set-tab-title $1}'
 
