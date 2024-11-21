@@ -40,6 +40,7 @@ return {
         "pyright",
         "intelephense",
         "rust_analyzer",
+        "gopls",
       },
     })
 
