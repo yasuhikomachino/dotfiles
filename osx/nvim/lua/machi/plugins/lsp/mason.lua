@@ -28,14 +28,15 @@ return {
       -- list of servers for mason to install
       ensure_installed = {
         "biome",
+        "ts_ls",
         "tsp_server",
         "html",
+        "emmet_ls",
         "cssls",
         "tailwindcss",
         "svelte",
         "lua_ls",
         "graphql",
-        "emmet_ls",
         "prismals",
         "pyright",
         "intelephense",

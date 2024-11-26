@@ -100,20 +100,86 @@ return {
           end,
         })
       end,
+
       ["graphql"] = function()
-        -- configure graphql language server
         lspconfig["graphql"].setup({
           capabilities = capabilities,
           filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
         })
       end,
-      ["emmet_ls"] = function()
-        -- configure emmet language server
-        lspconfig["emmet_ls"].setup({
+
+      ["html"] = function()
+        lspconfig["html"].setup({
           capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+          filetypes = { "html", "blade", "htmldjango" },
+          init_options = {
+            configurationSection = { "html", "css", "javascript" },
+            embeddedLanguages = {
+              css = true,
+              javascript = true,
+            },
+            provideFormatter = true,
+          },
         })
       end,
+
+      ["cssls"] = function()
+        lspconfig["cssls"].setup({
+          capabilities = capabilities,
+          filetypes = { "css", "scss", "less" },
+          settings = {
+            css = {
+              validate = true,
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+            scss = {
+              validate = true,
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+            less = {
+              validate = true,
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+          },
+        })
+      end,
+
+      ["emmet_ls"] = function()
+        lspconfig["emmet_ls"].setup({
+          capabilities = capabilities,
+          filetypes = {
+            "html",
+            "blade",
+            "htmldjango",
+            "typescriptreact",
+            "javascriptreact",
+            "css",
+            "sass",
+            "scss",
+            "less",
+            "svelte",
+          },
+        })
+      end,
+
+      ["ts_ls"] = function()
+        lspconfig["ts_ls"].setup({
+          capabilities = capabilities,
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+          },
+        })
+      end,
+
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
