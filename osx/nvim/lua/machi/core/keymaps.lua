@@ -4,6 +4,7 @@ vim.g.winresizer_start_key = "<C-y>"
 local keymap = vim.keymap
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj" })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "q", "b", { noremap = true, silent = true, desc = "Move to the beginning of the previous word" })
 
