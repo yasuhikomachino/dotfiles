@@ -8,7 +8,7 @@ return {
 		selection_fg = "#CBE0F0",
 	},
 	audible_bell = "Disabled",
-	scrollback_lines = 4096,
+	scrollback_lines = 10000,
 	use_ime = true,
 	window_padding = {
 		left = 5,
