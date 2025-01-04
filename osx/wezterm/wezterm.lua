@@ -17,7 +17,7 @@ return {
 		bottom = 5,
 	},
 	font = wezterm.font_with_fallback({
-		{ family = "Hack Nerd Font Mono", weight = "Regular" },
+		{ family = "JetBrains Mono NL", weight = "Regular" },
 		{ family = "HiraginoSans-W1", weight = "Regular" },
 	}),
 	font_size = 15,

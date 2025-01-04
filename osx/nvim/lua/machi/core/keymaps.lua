@@ -13,6 +13,9 @@ keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true, desc = "Save
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 
+-- select all
+keymap.set("n", "<C-a>", "gg<S-v>G")
+
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })

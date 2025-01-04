@@ -154,15 +154,7 @@ f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling
 backspace = ['close-all-windows-but-current', 'mode main']
 
 [[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = 'layout floating'
-
-[[on-window-detected]]
 if.app-id = 'io.raindrop.macapp'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.culturedcode.ThingsMac'
 run = 'layout floating'
 
 [[on-window-detected]]

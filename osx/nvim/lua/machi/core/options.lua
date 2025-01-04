@@ -22,9 +22,6 @@ opt.smartcase = true -- if you include mixed case in your search, assume you wan
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, ent of line or insert mode start position
 
--- clipboard
--- opt.clipboard:append({ "unnamedplus" })
-
 -- window opening direction
 opt.splitright = true
 opt.splitbelow = true
