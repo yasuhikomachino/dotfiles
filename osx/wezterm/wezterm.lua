@@ -16,7 +16,8 @@ return {
 		top = 5,
 		bottom = 5,
 	},
-	font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular", stretch = "Normal", style = "Normal" }),
+	font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Regular", stretch = "Normal", style = "Normal" }),
+	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	font_size = 15,
 	keys = {
 		{
