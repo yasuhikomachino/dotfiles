@@ -7,7 +7,7 @@ return {
 		selection_bg = "#033259",
 		selection_fg = "#CBE0F0",
 	},
-	audible_bell = "Disabled",
+	audible_bell = "SystemBeep",
 	scrollback_lines = 10000,
 	use_ime = true,
 	window_padding = {
@@ -64,6 +64,7 @@ return {
 			mods = "SUPER",
 			action = wezterm.action({ ScrollByPage = 0.25 }),
 		},
+		{ key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\n") },
 		-- tab
 		{ key = "1", mods = "SUPER", action = wezterm.action({ ActivateTab = 0 }) },
 		{ key = "2", mods = "SUPER", action = wezterm.action({ ActivateTab = 1 }) },
