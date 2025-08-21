@@ -15,4 +15,3 @@ asdf install nodejs latest
 asdf global nodejs latest
 echo "Node.js installation completed."
 
-npm i -g git-cz

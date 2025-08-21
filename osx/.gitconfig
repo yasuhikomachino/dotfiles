@@ -11,6 +11,7 @@
   unstage = reset HEAD
   sp = stash pop
   ss = stash -u -m "wip"
+	release = "!f() { git tag -a v$1 -m \"version $1\" && git push origin v$1; }; f"
 [rebase]
   autostash = true
 [include]
