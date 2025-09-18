@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+source "$CONFIG_DIR/environment"
+source "$THEME_DIR/tokyonight"
+
+LABEL_COLOR="$red"
+BRACKET_BACKGROUND_BORDER_COLOR="$red"
+
+sketchybar --add item front_app_spacer_left center \
+           --set      front_app_spacer_left \
+                      width=20 \
+                      background.drawing=off \
+                      label.drawing=off
+
+sketchybar --add item  front_app center \
+           --subscribe front_app front_app_switched \
+           --set       front_app \
+                       background.drawing=off \
+                       label.color="$LABEL_COLOR" \
+                       label.padding_left=0 \
+                       label.padding_right=0 \
+                       script="$PLUGIN_DIR/front_app"
+
+sketchybar --add item front_app_spacer_right center \
+           --set      front_app_spacer_right \
+                      width=20 \
+                      background.drawing=off \
+                      label.drawing=off
+
+sketchybar --add bracket front_app_bracket front_app_spacer_left front_app front_app_spacer_right \
+           --set         front_app_bracket \
+                         background.color="$BRACKET_BACKGROUND_COLOR" \
+                         background.border_color="$BRACKET_BACKGROUND_BORDER_COLOR" \
+                         background.corner_radius="$BRACKET_BACKGROUND_CORNER_RADIUS" \
+                         background.border_width="$BRACKET_BACKGROUND_BORDER_WIDTH"
+
+# Add spacer after front_app item
+sketchybar --add item front_app_after_spacer center \
+           --set      front_app_after_spacer \
+                      width=20 \
+                      background.drawing=off \
+                      label.drawing=off
