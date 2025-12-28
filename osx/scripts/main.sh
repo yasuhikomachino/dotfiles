@@ -7,7 +7,6 @@ setup() {
 
     sh ${DOTFILES_DIR}/scripts/git/create_gitconfig_local.sh
     sh ${DOTFILES_DIR}/scripts/homebrew/install.sh
-    sh ${DOTFILES_DIR}/scripts/asdf/install.sh
 
     echo "Setup completed!"
 }
