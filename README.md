@@ -7,6 +7,7 @@ My personal dotfiles managed with GNU Stow for macOS.
 - macOS
 - [Homebrew](https://brew.sh/)
 - [GNU Stow](https://www.gnu.org/software/stow/)
+- [mise](https://mise.jdx.dev/) - Runtime version manager
 
 ## Installation
 
