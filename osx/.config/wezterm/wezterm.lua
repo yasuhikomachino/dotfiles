@@ -25,8 +25,8 @@ end)
 
 return {
 	automatically_reload_config = true,
-	window_background_opacity = 0.85,
-	macos_window_background_blur = 20,
+	window_background_opacity = 1.00,
+	macos_window_background_blur = 0,
 	window_decorations = "RESIZE",
 	window_background_gradient = {
 		colors = { "#000000" },
