@@ -59,5 +59,10 @@ return {
 		{ key = "9", mods = "SUPER", action = wezterm.action({ ActivateTab = 8 }) },
 		{ key = "]", mods = "SUPER", action = wezterm.action({ ActivateTabRelative = 1 }) },
 		{ key = "[", mods = "SUPER", action = wezterm.action({ ActivateTabRelative = -1 }) },
+		-- pane resize
+		{ key = "H", mods = "SUPER|SHIFT", action = wezterm.action.AdjustPaneSize({ "Left", 5 }) },
+		{ key = "L", mods = "SUPER|SHIFT", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
+		{ key = "K", mods = "SUPER|SHIFT", action = wezterm.action.AdjustPaneSize({ "Up", 5 }) },
+		{ key = "J", mods = "SUPER|SHIFT", action = wezterm.action.AdjustPaneSize({ "Down", 5 }) },
 	},
 }
