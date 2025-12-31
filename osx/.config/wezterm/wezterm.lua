@@ -1,11 +1,43 @@
 local wezterm = require("wezterm")
+local keybinds = require("keybinds")
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local background = "#5c6d74"
+	local foreground = "#FFFFFF"
+
+	if tab.is_active then
+		background = "#ae8b2d"
+		foreground = "#FFFFFF"
+	end
+
+	local title = "   " .. wezterm.truncate_right(tab.active_pane.title, max_width - 1) .. "   "
+
+	return {
+		{ Background = { Color = background } },
+		{ Foreground = { Color = foreground } },
+		{ Text = title },
+	}
+end)
 
 return {
 	automatically_reload_config = true,
+	window_background_opacity = 0.85,
+	macos_window_background_blur = 20,
+	window_decorations = "RESIZE",
+	window_background_gradient = {
+		colors = { "#000000" },
+	},
+	use_fancy_tab_bar = false,
+	hide_tab_bar_if_only_one_tab = true,
+	show_new_tab_button_in_tab_bar = false,
 	colors = {
 		background = "#011423",
 		selection_bg = "#033259",
 		selection_fg = "#CBE0F0",
+		tab_bar = {
+			background = "none",
+			inactive_tab_edge = "none",
+		},
 	},
 	audible_bell = "SystemBeep",
 	scrollback_lines = 10000,
@@ -17,63 +49,7 @@ return {
 		bottom = 5,
 	},
 	font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Regular", stretch = "Normal", style = "Normal" }),
-	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	font_size = 15,
-	keys = {
-		{
-			key = "Enter",
-			mods = "SUPER",
-			action = wezterm.action({
-				SplitVertical = { domain = "CurrentPaneDomain" },
-			}),
-		},
-		{
-			key = "Enter",
-			mods = "SUPER|SHIFT",
-			action = wezterm.action({
-				SplitHorizontal = { domain = "CurrentPaneDomain" },
-			}),
-		},
-		{
-			key = "h",
-			mods = "SUPER",
-			action = wezterm.action({ ActivatePaneDirection = "Left" }),
-		},
-		{
-			key = "l",
-			mods = "SUPER",
-			action = wezterm.action({ ActivatePaneDirection = "Right" }),
-		},
-		{
-			key = "k",
-			mods = "SUPER",
-			action = wezterm.action({ ActivatePaneDirection = "Up" }),
-		},
-		{
-			key = "j",
-			mods = "SUPER",
-			action = wezterm.action({ ActivatePaneDirection = "Down" }),
-		},
-		{
-			key = "u",
-			mods = "SUPER",
-			action = wezterm.action({ ScrollByPage = -0.25 }),
-		},
-		{
-			key = "d",
-			mods = "SUPER",
-			action = wezterm.action({ ScrollByPage = 0.25 }),
-		},
-		{ key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\n") },
-		-- tab
-		{ key = "1", mods = "SUPER", action = wezterm.action({ ActivateTab = 0 }) },
-		{ key = "2", mods = "SUPER", action = wezterm.action({ ActivateTab = 1 }) },
-		{ key = "3", mods = "SUPER", action = wezterm.action({ ActivateTab = 2 }) },
-		{ key = "4", mods = "SUPER", action = wezterm.action({ ActivateTab = 3 }) },
-		{ key = "5", mods = "SUPER", action = wezterm.action({ ActivateTab = 4 }) },
-		{ key = "6", mods = "SUPER", action = wezterm.action({ ActivateTab = 5 }) },
-		{ key = "7", mods = "SUPER", action = wezterm.action({ ActivateTab = 6 }) },
-		{ key = "8", mods = "SUPER", action = wezterm.action({ ActivateTab = 7 }) },
-		{ key = "9", mods = "SUPER", action = wezterm.action({ ActivateTab = 8 }) },
-	},
+	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+	keys = keybinds.keys,
 }
