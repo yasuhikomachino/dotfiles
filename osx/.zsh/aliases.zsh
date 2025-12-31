@@ -17,3 +17,6 @@ alias l="clear && ls"
 # WezTerm
 alias st='(){wezterm cli set-tab-title $1}'
 
+# obsidian-cli
+alias ob='obsidian-cli'
+
