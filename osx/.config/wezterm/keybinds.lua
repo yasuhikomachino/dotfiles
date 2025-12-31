@@ -57,5 +57,7 @@ return {
 		{ key = "7", mods = "SUPER", action = wezterm.action({ ActivateTab = 6 }) },
 		{ key = "8", mods = "SUPER", action = wezterm.action({ ActivateTab = 7 }) },
 		{ key = "9", mods = "SUPER", action = wezterm.action({ ActivateTab = 8 }) },
+		{ key = "]", mods = "SUPER", action = wezterm.action({ ActivateTabRelative = 1 }) },
+		{ key = "[", mods = "SUPER", action = wezterm.action({ ActivateTabRelative = -1 }) },
 	},
 }
