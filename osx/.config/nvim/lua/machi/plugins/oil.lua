@@ -6,6 +6,12 @@ return {
     view_options = {
       show_hidden = true,
     },
+    keymaps = {
+      ["<C-h>"] = false,
+      ["<C-j>"] = false,
+      ["<C-k>"] = false,
+      ["<C-l>"] = false,
+    },
   },
   -- Optional dependencies
   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
