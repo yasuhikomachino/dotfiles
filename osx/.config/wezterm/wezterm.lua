@@ -4,8 +4,8 @@ require("events")
 
 return {
 	automatically_reload_config = true,
-	window_background_opacity = 1.00,
-	macos_window_background_blur = 0,
+	window_background_opacity = 0.85,
+	macos_window_background_blur = 20,
 	window_decorations = "RESIZE",
 	window_background_gradient = {
 		colors = { "#000000" },
@@ -22,6 +22,7 @@ return {
 			inactive_tab_edge = "none",
 		},
 	},
+	leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 },
 	audible_bell = "SystemBeep",
 	scrollback_lines = 10000,
 	use_ime = true,

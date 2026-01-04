@@ -59,9 +59,3 @@ keymap.set("n", "<Leader>bb", ":b#<CR>", { noremap = true, silent = true })
 
 -- ターミナルモードから抜ける
 keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true })
-
--- window navigation
-keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
-keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to below window" })
-keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to above window" })
-keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })

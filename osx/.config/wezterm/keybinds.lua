@@ -1,5 +1,35 @@
 local wezterm = require("wezterm")
 
+local function is_vim(pane)
+	local process_name = pane:get_foreground_process_name()
+	if process_name then
+		local name = string.gsub(process_name, "(.*[/\\])(.*)", "%2")
+		return name == "nvim" or name == "vim"
+	end
+	return false
+end
+
+local direction_keys = {
+	h = "Left",
+	j = "Down",
+	k = "Up",
+	l = "Right",
+}
+
+local function pane_move(key)
+	return {
+		key = key,
+		mods = "CTRL",
+		action = wezterm.action_callback(function(win, pane)
+			if is_vim(pane) then
+				win:perform_action({ SendKey = { key = key, mods = "CTRL" } }, pane)
+			else
+				win:perform_action({ ActivatePaneDirection = direction_keys[key] }, pane)
+			end
+		end),
+	}
+end
+
 return {
 	keys = {
 		{
@@ -16,26 +46,11 @@ return {
 				SplitHorizontal = { domain = "CurrentPaneDomain" },
 			}),
 		},
-		{
-			key = "h",
-			mods = "SUPER",
-			action = wezterm.action({ ActivatePaneDirection = "Left" }),
-		},
-		{
-			key = "l",
-			mods = "SUPER",
-			action = wezterm.action({ ActivatePaneDirection = "Right" }),
-		},
-		{
-			key = "k",
-			mods = "SUPER",
-			action = wezterm.action({ ActivatePaneDirection = "Up" }),
-		},
-		{
-			key = "j",
-			mods = "SUPER",
-			action = wezterm.action({ ActivatePaneDirection = "Down" }),
-		},
+		-- pane navigation (integrates with neovim via wezterm-move.nvim)
+		pane_move("h"),
+		pane_move("j"),
+		pane_move("k"),
+		pane_move("l"),
 		{
 			key = "u",
 			mods = "SUPER",
