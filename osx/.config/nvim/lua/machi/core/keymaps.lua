@@ -44,12 +44,18 @@ keymap.set("n", "<S-Tab>", "<<", { noremap = true, silent = true })
 keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
 
 -- move the current line up or down
-keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
-keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
+keymap.set("n", "<A-Up>", ":m .-2<CR>==", { noremap = true, silent = true })
+keymap.set("n", "<A-Down>", ":m .+1<CR>==", { noremap = true, silent = true })
 
 -- move selected lines up or down in visual mode
-keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
-keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+
+-- window resize (integrates with wezterm)
+keymap.set("n", "<A-h>", ":vertical resize -5<CR>", { noremap = true, silent = true, desc = "Resize window left" })
+keymap.set("n", "<A-l>", ":vertical resize +5<CR>", { noremap = true, silent = true, desc = "Resize window right" })
+keymap.set("n", "<A-k>", ":resize +5<CR>", { noremap = true, silent = true, desc = "Resize window up" })
+keymap.set("n", "<A-j>", ":resize -5<CR>", { noremap = true, silent = true, desc = "Resize window down" })
 
 -- baffer
 keymap.set("n", "<Leader>ls", ":<C-u>ls<CR>:buffer<Space>", { noremap = true, silent = true })

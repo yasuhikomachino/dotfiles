@@ -30,6 +30,20 @@ local function pane_move(key)
 	}
 end
 
+local function pane_resize(key)
+	return {
+		key = key,
+		mods = "ALT",
+		action = wezterm.action_callback(function(win, pane)
+			if is_vim(pane) then
+				win:perform_action({ SendKey = { key = key, mods = "ALT" } }, pane)
+			else
+				win:perform_action({ AdjustPaneSize = { direction_keys[key], 5 } }, pane)
+			end
+		end),
+	}
+end
+
 return {
 	keys = {
 		{
@@ -74,10 +88,10 @@ return {
 		{ key = "9", mods = "SUPER", action = wezterm.action({ ActivateTab = 8 }) },
 		{ key = "]", mods = "SUPER", action = wezterm.action({ ActivateTabRelative = 1 }) },
 		{ key = "[", mods = "SUPER", action = wezterm.action({ ActivateTabRelative = -1 }) },
-		-- pane resize
-		{ key = "H", mods = "SUPER|SHIFT", action = wezterm.action.AdjustPaneSize({ "Left", 5 }) },
-		{ key = "L", mods = "SUPER|SHIFT", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
-		{ key = "K", mods = "SUPER|SHIFT", action = wezterm.action.AdjustPaneSize({ "Up", 5 }) },
-		{ key = "J", mods = "SUPER|SHIFT", action = wezterm.action.AdjustPaneSize({ "Down", 5 }) },
+		-- pane resize (integrates with neovim)
+		pane_resize("h"),
+		pane_resize("j"),
+		pane_resize("k"),
+		pane_resize("l"),
 	},
 }
