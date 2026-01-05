@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.winresizer_start_key = "<C-y>"
+vim.g.winresizer_start_key = "<leader>r"
 
 local keymap = vim.keymap
 
@@ -63,8 +63,8 @@ keymap.set("n", "<A-l>", ":vertical resize +5<CR>", { noremap = true, silent = t
 keymap.set("n", "<A-k>", ":resize +5<CR>", { noremap = true, silent = true, desc = "Resize window up" })
 keymap.set("n", "<A-j>", ":resize -5<CR>", { noremap = true, silent = true, desc = "Resize window down" })
 
--- baffer
-keymap.set("n", "<Leader>ls", ":<C-u>ls<CR>:buffer<Space>", { noremap = true, silent = true })
+-- buffer
+keymap.set("n", "<Leader>bl", ":<C-u>ls<CR>:buffer<Space>", { noremap = true, silent = true })
 keymap.set("n", "<Leader>bp", ":bprevious<CR>", { noremap = true, silent = true })
 keymap.set("n", "<Leader>bn", ":bnext<CR>", { noremap = true, silent = true })
 keymap.set("n", "<Leader>bb", ":b#<CR>", { noremap = true, silent = true })
