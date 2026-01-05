@@ -22,6 +22,12 @@ keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits window size" })
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 
+-- window navigation
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+
 -- tab
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
@@ -51,7 +57,7 @@ keymap.set("n", "<A-Down>", ":m .+1<CR>==", { noremap = true, silent = true })
 keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 
--- window resize (integrates with wezterm)
+-- window resize
 keymap.set("n", "<A-h>", ":vertical resize -5<CR>", { noremap = true, silent = true, desc = "Resize window left" })
 keymap.set("n", "<A-l>", ":vertical resize +5<CR>", { noremap = true, silent = true, desc = "Resize window right" })
 keymap.set("n", "<A-k>", ":resize +5<CR>", { noremap = true, silent = true, desc = "Resize window up" })

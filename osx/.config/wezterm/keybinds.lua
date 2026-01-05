@@ -1,48 +1,11 @@
 local wezterm = require("wezterm")
 
-local function is_vim(pane)
-	local process_name = pane:get_foreground_process_name()
-	if process_name then
-		local name = string.gsub(process_name, "(.*[/\\])(.*)", "%2")
-		return name == "nvim" or name == "vim"
-	end
-	return false
-end
-
 local direction_keys = {
 	h = "Left",
 	j = "Down",
 	k = "Up",
 	l = "Right",
 }
-
-local function pane_move(key)
-	return {
-		key = key,
-		mods = "CTRL",
-		action = wezterm.action_callback(function(win, pane)
-			if is_vim(pane) then
-				win:perform_action({ SendKey = { key = key, mods = "CTRL" } }, pane)
-			else
-				win:perform_action({ ActivatePaneDirection = direction_keys[key] }, pane)
-			end
-		end),
-	}
-end
-
-local function pane_resize(key)
-	return {
-		key = key,
-		mods = "ALT",
-		action = wezterm.action_callback(function(win, pane)
-			if is_vim(pane) then
-				win:perform_action({ SendKey = { key = key, mods = "ALT" } }, pane)
-			else
-				win:perform_action({ AdjustPaneSize = { direction_keys[key], 5 } }, pane)
-			end
-		end),
-	}
-end
 
 return {
 	keys = {
@@ -60,11 +23,18 @@ return {
 				SplitHorizontal = { domain = "CurrentPaneDomain" },
 			}),
 		},
-		-- pane navigation (integrates with neovim via wezterm-move.nvim)
-		pane_move("h"),
-		pane_move("j"),
-		pane_move("k"),
-		pane_move("l"),
+		-- pane navigation (Leader + h,j,k,l)
+		{ key = "h", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
+		{ key = "j", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
+		{ key = "k", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
+		{ key = "l", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
+		-- enter resize mode
+		{
+			key = "r",
+			mods = "LEADER",
+			action = wezterm.action({ ActivateKeyTable = { name = "resize_pane", one_shot = false } }),
+		},
+		-- scroll
 		{
 			key = "u",
 			mods = "SUPER",
@@ -88,10 +58,15 @@ return {
 		{ key = "9", mods = "SUPER", action = wezterm.action({ ActivateTab = 8 }) },
 		{ key = "]", mods = "SUPER", action = wezterm.action({ ActivateTabRelative = 1 }) },
 		{ key = "[", mods = "SUPER", action = wezterm.action({ ActivateTabRelative = -1 }) },
-		-- pane resize (integrates with neovim)
-		pane_resize("h"),
-		pane_resize("j"),
-		pane_resize("k"),
-		pane_resize("l"),
+	},
+	key_tables = {
+		resize_pane = {
+			{ key = "h", action = wezterm.action({ AdjustPaneSize = { "Left", 5 } }) },
+			{ key = "j", action = wezterm.action({ AdjustPaneSize = { "Down", 5 } }) },
+			{ key = "k", action = wezterm.action({ AdjustPaneSize = { "Up", 5 } }) },
+			{ key = "l", action = wezterm.action({ AdjustPaneSize = { "Right", 5 } }) },
+			{ key = "Escape", action = "PopKeyTable" },
+			{ key = "Enter", action = "PopKeyTable" },
+		},
 	},
 }

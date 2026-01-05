@@ -22,7 +22,7 @@ return {
 			inactive_tab_edge = "none",
 		},
 	},
-	leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 },
+	leader = { key = "k", mods = "CTRL", timeout_milliseconds = 1000 },
 	audible_bell = "SystemBeep",
 	scrollback_lines = 10000,
 	use_ime = true,
@@ -36,4 +36,5 @@ return {
 	font_size = 15,
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	keys = keybinds.keys,
+	key_tables = keybinds.key_tables,
 }
