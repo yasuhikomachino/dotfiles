@@ -42,6 +42,15 @@ keymap.set("v", "<Leader>p", '"+p', { noremap = true, silent = true, desc = "Pas
 keymap.set("v", "<Leader>P", '"+P', { noremap = true, silent = true, desc = "Paste from system clipboard (before cursor)" })
 keymap.set("n", "<Leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard (after cursor)" })
 keymap.set("n", "<Leader>P", '"+P', { noremap = true, silent = true, desc = "Paste from system clipboard (before cursor)" })
+keymap.set("n", "<Leader>yp", function()
+  vim.fn.setreg("+", vim.fn.expand("%"))
+end, { desc = "Copy relative path to clipboard" })
+keymap.set("n", "<Leader>yP", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p"))
+end, { desc = "Copy full path to clipboard" })
+keymap.set("n", "<Leader>yf", function()
+  vim.fn.setreg("+", vim.fn.expand("%:t"))
+end, { desc = "Copy filename to clipboard" })
 
 -- indent
 keymap.set("n", "<Tab>", ">>", { noremap = true, silent = true })
