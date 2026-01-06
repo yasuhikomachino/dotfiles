@@ -13,6 +13,9 @@ autoload -Uz compinit && compinit
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Initialize mise (before loading config files that depend on it)
+eval "$(mise activate zsh)"
+
 # Load additional configuration files
 if [ -f "$HOME/.zshrc_local" ]; then
   source "$HOME/.zshrc_local"
