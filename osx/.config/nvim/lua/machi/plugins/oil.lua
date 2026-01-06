@@ -5,6 +5,13 @@ return {
   opts = {
     view_options = {
       show_hidden = true,
+      is_always_hidden = function(name, bufnr)
+        local hidden = {
+          [".claude"] = true,
+          ["CLAUDE.md"] = true,
+        }
+        return hidden[name] or false
+      end,
     },
     keymaps = {
       ["<C-h>"] = false,
@@ -13,10 +20,7 @@ return {
       ["<C-l>"] = false,
     },
   },
-  -- Optional dependencies
   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = false,
   keys = {
     { "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
