@@ -1,12 +1,12 @@
 local wezterm = require("wezterm")
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local background = "#5c6d74"
-	local foreground = "#FFFFFF"
+	local background = "#333333"
+	local foreground = "#cccccc"
 
 	if tab.is_active then
-		background = "#ae8b2d"
-		foreground = "#FFFFFF"
+		background = "#D79A22"
+		foreground = "#282828"
 	end
 
 	local title = tab.tab_title

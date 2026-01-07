@@ -2,15 +2,16 @@ return {
   "craftzdog/solarized-osaka.nvim",
   priority = 1000,
   config = function()
-    local transparent = true -- set to true if you would like to enable transparency
-
     require("solarized-osaka").setup({
       style = "night",
-      transparent = transparent,
+      transparent = false,
       styles = {
-        sidebars = transparent and "transparent" or "dark",
-        floats = transparent and "transparent" or "dark",
+        sidebars = "dark",
+        floats = "dark",
       },
+      on_colors = function(colors)
+        colors.bg = "#000000"
+      end,
     })
 
     vim.cmd("colorscheme solarized-osaka")
