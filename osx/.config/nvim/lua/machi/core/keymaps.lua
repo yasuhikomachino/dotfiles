@@ -52,12 +52,6 @@ keymap.set("n", "<Leader>yf", function()
   vim.fn.setreg("+", vim.fn.expand("%:t"))
 end, { desc = "Copy filename to clipboard" })
 
--- indent
-keymap.set("n", "<Tab>", ">>", { noremap = true, silent = true })
-keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
-keymap.set("n", "<S-Tab>", "<<", { noremap = true, silent = true })
-keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
-
 -- move the current line up or down
 keymap.set("n", "<A-Up>", ":m .-2<CR>==", { noremap = true, silent = true })
 keymap.set("n", "<A-Down>", ":m .+1<CR>==", { noremap = true, silent = true })
