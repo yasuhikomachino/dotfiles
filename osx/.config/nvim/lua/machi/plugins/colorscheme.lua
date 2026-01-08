@@ -9,9 +9,9 @@ return {
         sidebars = "dark",
         floats = "dark",
       },
-      on_colors = function(colors)
-        colors.bg = "#000000"
-      end,
+      -- on_colors = function(colors)
+      --   colors.bg = "#000000"
+      -- end,
     })
 
     vim.cmd("colorscheme solarized-osaka")

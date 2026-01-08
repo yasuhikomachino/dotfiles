@@ -3,19 +3,16 @@ local keybinds = require("keybinds")
 require("events")
 
 return {
-	color_scheme = "Gruvbox Dark (Gogh)",
+	color_scheme = "Solarized Dark Higher Contrast (Gogh)",
 	automatically_reload_config = true,
 	window_background_opacity = 1.00,
 	macos_window_background_blur = 0,
 	window_decorations = "RESIZE",
-	window_background_gradient = {
-		colors = { "#000000" },
-	},
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
 	show_new_tab_button_in_tab_bar = false,
 	colors = {
-		background = "#000000",
+		background = "#001419",
 		selection_bg = "#D79A22",
 		selection_fg = "#333333",
 		tab_bar = {
