@@ -20,7 +20,7 @@ return {
       ["<C-l>"] = false,
     },
   },
-  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
   lazy = false,
   keys = {
     { "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
