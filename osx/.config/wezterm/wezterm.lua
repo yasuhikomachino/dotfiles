@@ -20,7 +20,7 @@ return {
 			inactive_tab_edge = "none",
 		},
 	},
-	leader = { key = "k", mods = "CTRL", timeout_milliseconds = 1000 },
+	leader = { key = ";", mods = "CTRL", timeout_milliseconds = 1000 },
 	audible_bell = "SystemBeep",
 	scrollback_lines = 10000,
 	use_ime = true,
