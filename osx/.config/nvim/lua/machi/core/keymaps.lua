@@ -3,11 +3,13 @@ vim.g.winresizer_start_key = "<leader>r"
 
 local keymap = vim.keymap
 
-keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
-keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj" })
+keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode" })
+keymap.set("t", "jj", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+keymap.set("i", "っｊ", "<ESC>", { desc = "Exit insert mode" })
+keymap.set("t", "っｊ", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
-keymap.set("n", "q", "b", { noremap = true, silent = true, desc = "Move to the beginning of the previous word" })
-keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true, desc = "Save current buffer" })
+keymap.set("n", "q", "b", { silent = true, desc = "Move to the beginning of the previous word" })
+keymap.set("n", "<C-s>", ":w<CR>", { silent = true, desc = "Save current buffer" })
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
@@ -36,12 +38,12 @@ keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
 -- clipboard
-keymap.set("v", "<Leader>y", '"+y', { noremap = true, silent = true, desc = "Copy to system clipboard" })
-keymap.set("v", "<Leader>d", '"+d', { noremap = true, silent = true, desc = "Cut to system clipboard" })
-keymap.set("v", "<Leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard (after cursor)" })
-keymap.set("v", "<Leader>P", '"+P', { noremap = true, silent = true, desc = "Paste from system clipboard (before cursor)" })
-keymap.set("n", "<Leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard (after cursor)" })
-keymap.set("n", "<Leader>P", '"+P', { noremap = true, silent = true, desc = "Paste from system clipboard (before cursor)" })
+keymap.set("v", "<Leader>y", '"+y', { silent = true, desc = "Copy to system clipboard" })
+keymap.set("v", "<Leader>d", '"+d', { silent = true, desc = "Cut to system clipboard" })
+keymap.set("v", "<Leader>p", '"+p', { silent = true, desc = "Paste from system clipboard (after cursor)" })
+keymap.set("v", "<Leader>P", '"+P', { silent = true, desc = "Paste from system clipboard (before cursor)" })
+keymap.set("n", "<Leader>p", '"+p', { silent = true, desc = "Paste from system clipboard (after cursor)" })
+keymap.set("n", "<Leader>P", '"+P', { silent = true, desc = "Paste from system clipboard (before cursor)" })
 keymap.set("n", "<Leader>yp", function()
   vim.fn.setreg("+", vim.fn.expand("%"))
 end, { desc = "Copy relative path to clipboard" })
@@ -53,26 +55,23 @@ keymap.set("n", "<Leader>yf", function()
 end, { desc = "Copy filename to clipboard" })
 
 -- move the current line up or down
-keymap.set("n", "<A-Up>", ":m .-2<CR>==", { noremap = true, silent = true })
-keymap.set("n", "<A-Down>", ":m .+1<CR>==", { noremap = true, silent = true })
+keymap.set("n", "<A-Up>", ":m .-2<CR>==", { silent = true })
+keymap.set("n", "<A-Down>", ":m .+1<CR>==", { silent = true })
 
 -- move selected lines up or down in visual mode
-keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
-keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv", { silent = true })
+keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv", { silent = true })
 
 -- window resize
-keymap.set("n", "<A-h>", ":vertical resize -5<CR>", { noremap = true, silent = true, desc = "Resize window left" })
-keymap.set("n", "<A-l>", ":vertical resize +5<CR>", { noremap = true, silent = true, desc = "Resize window right" })
-keymap.set("n", "<A-k>", ":resize +5<CR>", { noremap = true, silent = true, desc = "Resize window up" })
-keymap.set("n", "<A-j>", ":resize -5<CR>", { noremap = true, silent = true, desc = "Resize window down" })
+keymap.set("n", "<A-h>", ":vertical resize -5<CR>", { silent = true, desc = "Resize window left" })
+keymap.set("n", "<A-l>", ":vertical resize +5<CR>", { silent = true, desc = "Resize window right" })
+keymap.set("n", "<A-k>", ":resize +5<CR>", { silent = true, desc = "Resize window up" })
+keymap.set("n", "<A-j>", ":resize -5<CR>", { silent = true, desc = "Resize window down" })
 
 -- buffer
-keymap.set("n", "<Leader>bl", ":<C-u>ls<CR>:buffer<Space>", { noremap = true, silent = true })
-keymap.set("n", "<Leader>bp", ":bprevious<CR>", { noremap = true, silent = true })
-keymap.set("n", "<Leader>bn", ":bnext<CR>", { noremap = true, silent = true })
-keymap.set("n", "<Leader>bb", ":b#<CR>", { noremap = true, silent = true })
-keymap.set("n", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true, desc = "Go to previous buffer" })
-keymap.set("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true, desc = "Go to next buffer" })
-
--- ターミナルモードから抜ける
-keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true })
+keymap.set("n", "<Leader>bl", ":<C-u>ls<CR>:buffer<Space>", { silent = true })
+keymap.set("n", "<Leader>bp", ":bprevious<CR>", { silent = true })
+keymap.set("n", "<Leader>bn", ":bnext<CR>", { silent = true })
+keymap.set("n", "<Leader>bb", ":b#<CR>", { silent = true })
+keymap.set("n", "<S-Tab>", ":bprevious<CR>", { silent = true, desc = "Go to previous buffer" })
+keymap.set("n", "<Tab>", ":bnext<CR>", { silent = true, desc = "Go to next buffer" })
