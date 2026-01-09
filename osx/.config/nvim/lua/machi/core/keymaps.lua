@@ -71,6 +71,8 @@ keymap.set("n", "<Leader>bl", ":<C-u>ls<CR>:buffer<Space>", { noremap = true, si
 keymap.set("n", "<Leader>bp", ":bprevious<CR>", { noremap = true, silent = true })
 keymap.set("n", "<Leader>bn", ":bnext<CR>", { noremap = true, silent = true })
 keymap.set("n", "<Leader>bb", ":b#<CR>", { noremap = true, silent = true })
+keymap.set("n", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true, desc = "Go to previous buffer" })
+keymap.set("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true, desc = "Go to next buffer" })
 
 -- ターミナルモードから抜ける
 keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true })
