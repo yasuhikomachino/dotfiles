@@ -14,7 +14,7 @@ $character"""
 style = "blue"
 
 [character]
-success_symbol = "[\\$](cyan)"
+success_symbol = "[\\$](#888888)"
 error_symbol = "[\\$](red)"
 vimcmd_symbol = "[\\$](green)"
 
