@@ -13,7 +13,14 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	if title == "" then
 		title = tab.active_pane.title
 	end
-	title = "   " .. title .. "   "
+
+	-- パディング分を引いた最大幅でタイトルを切り詰める
+	local padding = 3
+	local max_title_width = max_width - (padding * 2)
+	if #title > max_title_width then
+		title = wezterm.truncate_right(title, max_title_width - 1) .. "…"
+	end
+	title = string.rep(" ", padding) .. title .. string.rep(" ", padding)
 
 	return {
 		{ Background = { Color = background } },
