@@ -48,5 +48,6 @@ return {
     keymap.set("n", "<leader>fb", "<cmd>Telescope buffers hidden=true<cr>", { desc = "Fuzzy find buffers" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
     keymap.set("n", "<leader>fR", "<cmd>Telescope resume<cr>", { desc = "Resume last search" })
+    keymap.set("n", "<leader>fg", "<cmd>Telescope git_status<cr>", { desc = "Find git changed files" })
   end,
 }
