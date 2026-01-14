@@ -2,6 +2,9 @@ return {
   "coder/claudecode.nvim",
   dependencies = { "folke/snacks.nvim" },
   opts = {
+    terminal = {
+      split_width_percentage = 0.4, -- パネル幅を40%に設定
+    },
     diff_opts = {
       auto_close_on_accept = true,
       vertical_split = true,
