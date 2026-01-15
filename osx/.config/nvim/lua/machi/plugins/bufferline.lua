@@ -8,7 +8,13 @@ return {
         mode = "buffers",
         show_buffer_close_icons = false,
         show_close_icon = false,
+        close_command = function(bufnum)
+          require("mini.bufremove").delete(bufnum, false)
+        end,
       },
+    },
+    keys = {
+      { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Close other buffers" },
     },
   },
   {

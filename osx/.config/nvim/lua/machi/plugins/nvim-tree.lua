@@ -38,7 +38,7 @@ return {
         },
       },
       filters = {
-        custom = { ".DS_Store" },
+        custom = { ".DS_Store", "CLAUDE.md", ".claude", ".serena" },
       },
       git = {
         ignore = false,
