@@ -31,7 +31,10 @@ return {
 		top = 5,
 		bottom = 5,
 	},
-	font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Regular", stretch = "Normal", style = "Normal" }),
+	font = wezterm.font_with_fallback({
+		"JetBrainsMono Nerd Font Mono",
+		"HackGen Console NF",
+	}),
 	font_size = 15,
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	keys = keybinds.keys,
