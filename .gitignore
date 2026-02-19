@@ -1,1 +1,9 @@
 .DS_Store
+
+# Zed
+osx/.config/zed/.tmp*
+osx/.config/zed/embeddings/
+osx/.config/zed/prompts/
+osx/.config/zed/conversations/
+osx/.config/zed/themes/
+osx/.config/zed/settings_backup.json
