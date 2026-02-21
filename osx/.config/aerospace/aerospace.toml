@@ -139,6 +139,8 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
+alt-t = 'workspace 10' # Terminal
+alt-a = 'workspace 11' # AI
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -150,6 +152,8 @@ alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-t = 'move-node-to-workspace 10' # Terminal
+alt-shift-a = 'move-node-to-workspace 11' # AI
 
 alt-shift-f = 'fullscreen'
 
@@ -185,18 +189,3 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-[[on-window-detected]]
-if.app-id = 'io.raindrop.macapp'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.1password.1password'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.linguee.DeepLCopyTranslator'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'us.zoom.xos'
-run = 'layout floating'
