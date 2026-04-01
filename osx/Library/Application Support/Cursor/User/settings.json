@@ -4,7 +4,7 @@
         "**/.git": false
     },
     "git.autofetch": true,
-    "workbench.colorTheme": "Gruvbox Material Dark",
+    "workbench.colorTheme": "One Dark Pro Night Flat",
     "csv.enabled": true,
     "vim.leader": "<space>",
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -74,5 +74,17 @@
             ]
         }
     ],
-    "workbench.statusBar.visible": false
+    "cSpell.userWords": [
+        "intelephense"
+    ],
+    "editor.guides.indentation": false,
+    "editor.renderWhitespace": "all",
+    "git.openRepositoryInParentFolders": "always",
+    "githubPullRequests.fileListLayout": "tree",
+    "editor.fontSize": 13,
+    "githubPullRequests.pullBranch": "never",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cursor.agent.attribution": false
 }
