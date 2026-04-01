@@ -22,3 +22,5 @@ if [ -f "$HOME/.zshrc_local" ]; then
 fi
 for config_file (~/.zsh/*.zsh) source $config_file
 
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
