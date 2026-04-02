@@ -4,7 +4,7 @@
         "**/.git": false
     },
     "git.autofetch": true,
-    "workbench.colorTheme": "One Dark Pro Night Flat",
+    "workbench.colorTheme": "Helios Solarized Dark",
     "csv.enabled": true,
     "vim.leader": "<space>",
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -86,5 +86,8 @@
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "cursor.agent.attribution": false
+    "cursor.agent.attribution": false,
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
