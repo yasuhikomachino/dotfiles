@@ -1,6 +1,6 @@
 # dotfiles
 
-My personal dotfiles managed with GNU Stow for macOS.
+My personal dotfiles managed with GNU Stow and nix-darwin for macOS.
 
 ## Prerequisites
 
@@ -8,6 +8,7 @@ My personal dotfiles managed with GNU Stow for macOS.
 - [Homebrew](https://brew.sh/)
 - [GNU Stow](https://www.gnu.org/software/stow/)
 - [mise](https://mise.jdx.dev/) - Runtime version manager
+- [Nix](https://nixos.org/) - System configuration management for macOS
 
 ## Installation
 
@@ -33,6 +34,31 @@ Use GNU Stow to create symlinks for dotfiles:
 
 ```bash
 stow osx
+```
+
+## Nix (Finder settings)
+
+Finder settings are managed with `nix-darwin`.
+
+### Install Nix
+
+```bash
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
+```
+
+### Apply nix-darwin configuration
+
+The flake is configured for Apple Silicon macOS (`aarch64-darwin`).
+
+```bash
+sudo nix run github:nix-darwin/nix-darwin/master#darwin-rebuild -- switch --flake .#macos
+```
+
+After the initial install, use:
+
+```bash
+darwin-rebuild switch --flake .#macos
+killall Finder
 ```
 
 ## Stow Commands
